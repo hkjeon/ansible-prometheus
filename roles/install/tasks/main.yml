@@ -33,6 +33,7 @@
       unarchive:
         src: "/tmp/prometheus-{{ prometheus_version }}.linux-amd64.tar.gz"
         dest: "/tmp"
+        remote_src: yes
 
     - name: copy prometheus and promtool binaries files
       copy:
