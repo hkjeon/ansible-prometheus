@@ -33,6 +33,7 @@
       unarchive:
         src: "/tmp/prometheus-{{ prometheus_version }}.linux-amd64.tar.gz"
         dest: "/tmp"
+        remote_src: yes
 
     - name: copy prometheus and promtool binaries files
       copy:
@@ -69,10 +70,11 @@
   notify:
     - restart prometheus
 
-      #- name: reload for Prometheus
-      #service:
-      #name: prometheus
-      #state: reloaded
+- name: reload for Prometheus
+  systemd: 
+    name: prometheus
+    enabled: true
+    state: started
 
 - name: Check Port 9090 for Prometheus
   shell:

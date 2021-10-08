@@ -10,4 +10,4 @@ scrape_configs:
     # metrics_path defaults to '/metrics'
     # scheme defaults to 'http'.
     static_configs:
-    - targets: ['i{{ prometheus_ip }}:9090']
+    - targets: ['{{ prometheus_ip }}:9090']

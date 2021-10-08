@@ -1,2 +1,5 @@
 [prometheus]
 60.30.152.6
+
+[node-exporter]
+60.30.152.4
