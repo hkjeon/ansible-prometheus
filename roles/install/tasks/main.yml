@@ -28,22 +28,11 @@
       get_url:
         url: "https://github.com/prometheus/prometheus/releases/download/v{{ prometheus_version }}/prometheus-{{ prometheus_version }}.linux-amd64.tar.gz"
         dest: "/tmp/prometheus-{{ prometheus_version }}.linux-amd64.tar.gz"
-        #      checksum: "sha256:{{ __prometheus_checksum }}"
-        #      register: _download_archive
-        #until: _download_archive is succeeded
-        #retries: 5
-        #delay: 2
-      # run_once: true # <-- this cannot be set due to multi-arch support
-      #delegate_to: localhost
-      #check_mode: false
 
     - name: unpack prometheus binaries
       unarchive:
         src: "/tmp/prometheus-{{ prometheus_version }}.linux-amd64.tar.gz"
         dest: "/tmp"
-        #creates: "/tmp/prometheus-{{ prometheus_version }}.linux-amd64/prometheus"
-        #delegate_to: localhost
-        #check_mode: false
 
     - name: copy prometheus and promtool binaries files
       copy:
